@@ -10,6 +10,7 @@ export class ProfileComponent {
   profileForm = new FormGroup({
     firstName: new FormControl('John'),
     lastName: new FormControl('Doe'),
+    age: new FormControl(31),
     address: new FormGroup({
       street: new FormControl('1234 Powell St'),
       city: new FormControl('San Francisco'),
@@ -19,6 +20,9 @@ export class ProfileComponent {
   });
 
   populate() {
-    this.profileForm.controls.firstName.setValue('Igor');
+    this.profileForm.patchValue({
+      firstName: 'Igor',
+      age: 31,
+    });
   }
 }
